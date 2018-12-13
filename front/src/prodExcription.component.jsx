@@ -16,17 +16,12 @@ class ProdExcription extends Component{
                     </p>
                 </div>
                 <div className="colors">
-                    <div className="color_element colors1"></div>
-                    <div className="color_element colors2"></div>
-                    <div className="color_element colors3"></div>
-                    <div className="color_element colors4"></div>
-                    <div className="color_element colors1"></div>
-                    <div className="color_element colors2"></div>
-                    <div className="color_element colors3"></div>
-                    <div className="color_element colors4"></div>
+                    <div className="color_element colors1" onClick={()=>this.props.changePrice(99.99)}></div>
+                    <div className="color_element colors2" onClick={()=>this.props.changePrice(98.99)}></div>
+                    <div className="color_element colors3" onClick={()=>this.props.changePrice(90.99)}></div>
                 </div>
                 <div className="add_card">
-                    <button className="button1">ADD TO CARD</button>
+                    <button className="button1" onClick={(e)=>this.props.addToCard()}>ADD TO CARD</button>
                 </div>
             </div>
         );
