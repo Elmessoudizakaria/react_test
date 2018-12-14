@@ -5,7 +5,7 @@ class ProdExcription extends Component{
         return(
             <div className="description">
                 <div className="des_title">
-                    <h2>{this.props.prod.title}</h2>
+                    <h2>{this.props.title}</h2>
                 </div>
                 <div className="des_prix">
                     <h2>{this.props.prod.prix} <small>$</small></h2>
