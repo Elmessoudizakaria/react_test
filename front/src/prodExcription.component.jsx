@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import BrandOptions from './brandOptions.component.jsx';
 class ProdExcription extends Component{
     render(){
         return(
@@ -15,11 +15,7 @@ class ProdExcription extends Component{
                       {this.props.prod.description}
                     </p>
                 </div>
-                <div className="colors">
-                    <div className="color_element colors1" onClick={()=>this.props.changePrice(99.99)}></div>
-                    <div className="color_element colors2" onClick={()=>this.props.changePrice(98.99)}></div>
-                    <div className="color_element colors3" onClick={()=>this.props.changePrice(90.99)}></div>
-                </div>
+                <BrandOptions prods={this.props.prods} changePrice={(r)=>this.props.changePrice(r)}/>
                 <div className="add_card">
                     <button className="button1" onClick={(e)=>this.props.addToCard()}>ADD TO CARD</button>
                 </div>

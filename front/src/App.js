@@ -8,44 +8,42 @@ class App extends Component {
     super();
     this.state={
         prods:[
-          {
-            title:'BIJOUX PANDORE',
-            prix : 80.99,
-            description:'WHAT A GREATE ACCESSOIRS. WHAT A GREATE ACCESSOIRS.',
-            image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQReVAnUv74XBHryuLf0zNrRIrFSg2qwQgTJ4iKSoL4fTryib5-Ew',
-                
-          },
-          {
-            title:'BIJOUX PANDORE',
-            prix : 80.99,
-            description:'WHAT A GREATE ACCESSOIRS. WHAT A GREATE ACCESSOIRS.',
-            image:'http://s3.amazonaws.com/nike-demo/assets/37690/Nike_EARL_Profile_square_1600.jpg',
-                
-          },
-          {
-            title:'BIJOUX PANDORE',
-            prix : 80.99,
-            description:'WHAT A GREATE ACCESSOIRS. WHAT A GREATE ACCESSOIRS.',
-            image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlA4iHOTepTDdVZl8iLqImrix67g1o13pHTZFeJICB8RvdNCXl3Qg',
-                
-          }
+            {
+                title:'NIKE SHOES',
+                prix : 70.99,
+                color:'red',
+                description:'WHAT A GREATE SHOES THE RED ONE',
+                image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQReVAnUv74XBHryuLf0zNrRIrFSg2qwQgTJ4iKSoL4fTryib5-Ew',
+                    
+            },
+            {
+                title:'NIKE SHOES',
+                prix : 89.99,
+                color:'green',
+                description:'WHAT A GREATE SHOES THE GREEN ONE',
+                image:'http://s3.amazonaws.com/nike-demo/assets/37690/Nike_EARL_Profile_square_1600.jpg',
+                    
+            },
+            {
+                title:'NIKE SHOES',
+                prix : 90.99,
+                color:'#c1c4c0',
+                description:'WHAT A GREATE SHOES THE GREEY ONE',
+                image:'https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/wokkcny4zbhvzobfwc7i/air-presto-womens-shoe-89Tqz1nG.jpg',        
+            }
         ],
-        prod:{
-            title:'BIJOUX PANDORE',
-            prix : 80.99,
-            description:'WHAT A GREATE ACCESSOIRS. WHAT A GREATE ACCESSOIRS.',
-            images:[
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQReVAnUv74XBHryuLf0zNrRIrFSg2qwQgTJ4iKSoL4fTryib5-Ew',
-                'http://s3.amazonaws.com/nike-demo/assets/37690/Nike_EARL_Profile_square_1600.jpg',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlA4iHOTepTDdVZl8iLqImrix67g1o13pHTZFeJICB8RvdNCXl3Qg'
-            ]
-        },
+        prod:{},
         card:0
     }
   }
-  changePrice(price){
-      let prod = this.state.prod;
-      prod.prix = price;
+
+  componentDidMount(){
+      this.setState({
+            prod:this.state.prods[0]
+        });
+  }
+  changePrice(index){
+      let prod = this.state.prods[index];
       this.setState({prod:prod});
   }
   addToCard(){
@@ -57,11 +55,16 @@ class App extends Component {
     return (
       <div className="container">
         <div className="card">
-           <Slider images={this.state.prod.images} prods={this.state.prods}/>
-            <ProdExcription prod={this.state.prod} changePrice={(prix)=>this.changePrice(prix)} addToCard={()=>this.addToCard()}/>
+            <Slider image={this.state.prod.image}/>
+            <ProdExcription 
+                prod={this.state.prod}
+                prods = {this.state.prods}
+                changePrice={(prix)=>this.changePrice(prix)} 
+                addToCard={()=>this.addToCard()}    
+            /> 
             <div className="fab">
-              <img src={shop} alt="shop"/>
-              <small>{this.state.card}</small>
+                <img src={shop} alt="shop"/>
+                <small>{this.state.card}</small>
             </div>
         </div>
     </div>
