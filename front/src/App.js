@@ -11,7 +11,7 @@ class App extends Component {
         prods:[],
         prod:{},
         title:'',
-        card:0
+        card:[]
     }
   }
 
@@ -31,7 +31,7 @@ class App extends Component {
   }
   addToCard(){
     let card = this.state.card;
-    card++;
+    card.push(this.state.prod);
     this.setState({card:card});
   }
   render() {
@@ -48,7 +48,7 @@ class App extends Component {
             /> 
             <div className="fab">
                 <img src={shop} alt="shop"/>
-                <small>{this.state.card}</small>
+                <small>{this.state.card.length}</small>
             </div>
         </div>
     </div>
